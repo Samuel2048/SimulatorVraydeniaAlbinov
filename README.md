@@ -1,0 +1,2 @@
+# SimulatorVraydeniaAlbinov
+ meke hlavz
