@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
       <AnchorPane fx:id="pane" onMouseClicked="#onMouseClick" onMouseMoved="#onMouseMove" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,4 +26,33 @@
          </children>
       </AnchorPane>
    </center>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Slider layoutX="30.0" layoutY="76.0" />
+            <Text fontSmoothingType="LCD" layoutX="57.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nastavenie" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="83.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Únava">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+            </Text>
+            <Slider layoutX="30.0" layoutY="129.0" />
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sila vetra">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="86.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+            </Text>
+            <Line endX="100.0" layoutX="100.0" layoutY="179.0" opacity="0.2" startX="-100.0" />
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>
