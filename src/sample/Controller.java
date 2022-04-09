@@ -4,6 +4,7 @@ package sample;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,7 +15,9 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    ImageView target, aim;
+    ImageView target, aim, arrow;
+    @FXML
+    Slider tiredSlider, windSlider;
     @FXML
     AnchorPane pane;
 
