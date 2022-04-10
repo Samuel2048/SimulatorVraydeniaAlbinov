@@ -11,18 +11,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
-      <AnchorPane fx:id="pane" onMouseClicked="#onMouseClick" onMouseMoved="#onMouseMove" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="pane" onMouseClicked="#onMouseClick" onMouseEntered="#hideCursor" onMouseExited="#showCursor" onMouseMoved="#onMouseMove" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="target" fitHeight="338.0" fitWidth="472.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="target" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@target.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="aim" fitHeight="47.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="aim" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../res/aim.png" />
+                  <Image url="@aim.png" />
                </image>
             </ImageView>
          </children>
@@ -43,7 +43,7 @@
             </Pane>
             <ImageView fx:id="arrow" fitHeight="31.0" fitWidth="30.0" layoutX="82.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../res/arrow.png" />
+                  <Image url="@arrow.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" fontSmoothingType="LCD" layoutX="57.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nastavenie" textAlignment="CENTER">

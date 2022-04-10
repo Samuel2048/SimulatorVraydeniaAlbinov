@@ -12,7 +12,7 @@ public class Main extends Application {
     static Parent[] root = new Parent[2];
     static Scene mojeOkno;
     static Stage primaryStage;
-    static int pocetKol = 0;
+    static String playerName = "unknown";
     static FXMLLoader loader;
 
     @Override
