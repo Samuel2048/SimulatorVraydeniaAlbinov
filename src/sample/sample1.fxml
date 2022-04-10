@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
       <AnchorPane fx:id="pane" onMouseClicked="#onMouseClick" onMouseEntered="#hideCursor" onMouseExited="#showCursor" onMouseMoved="#onMouseMove" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,14 +31,14 @@
    <right>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" scaleShape="false" style="-fx-background-color: #5271dc;" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutY="185.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: #3f5bba;">
+            <Pane layoutY="185.0" prefHeight="316.0" prefWidth="200.0" style="-fx-background-color: #3f5bba;">
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="86.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body">
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="82.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="12.0" />
+                        <Font name="Comic Sans MS Bold" size="16.0" />
                      </font>
                   </Text>
-                  <ListView fx:id="listView" focusTraversable="false" layoutY="27.0" prefHeight="127.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-alignment: center; -fx-border-radius: 4px;" />
+                  <ListView fx:id="listView" focusTraversable="false" layoutY="52.0" prefHeight="264.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-alignment: center; -fx-border-radius: 4px;" />
                </children>
             </Pane>
             <ImageView fx:id="arrow" fitHeight="31.0" fitWidth="30.0" layoutX="82.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">

@@ -7,6 +7,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
@@ -48,18 +50,17 @@ public class Controller implements Initializable {
     double windOffsetX;
     double windOffsetY;
     double finalScore = 0;
-    BufferedWriter bout;
-    int shotCounter = 0;
+    static int shotCounter = 0;
 
     public void onMouseMove(MouseEvent event) {
         mouseX = event.getX() - aim.getFitWidth()/2;
         mouseY = event.getY() - aim.getFitHeight()/2;
-
     }
 
     public void onMouseClick() throws MalformedURLException {
         ImageView hole = new ImageView();
         Path imageFile = Paths.get("res/hole.png");
+        hole.setId("hole");
         hole.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
         hole.setFitWidth(5);
         hole.setFitHeight(17);
@@ -80,19 +81,24 @@ public class Controller implements Initializable {
         finalScore += score;
         shotCounter++;
         System.out.println(distance + " " + score);
-        listView.getItems().add(String.valueOf(Math.round(score*10.0)/10.0));
+        listView.getItems().add(0, String.valueOf(Math.round(score*10.0)/10.0));
 
         // TODO: koniec hry
-        if (shotCounter == 10)
+        if (shotCounter >= 10)
             gameOver();
-
 
     }
     public void showCursor() {
-        pane.getScene().setCursor(Cursor.DEFAULT);
+        try {
+            pane.getScene().setCursor(Cursor.DEFAULT);
+        }
+        catch (Exception e) {}
     }
     public void hideCursor() {
-        pane.getScene().setCursor(Cursor.NONE);
+        try {
+            pane.getScene().setCursor(Cursor.NONE);
+        }
+        catch (Exception e) {}
     }
 
     private double[] getAimCenter() {
@@ -103,14 +109,18 @@ public class Controller implements Initializable {
     }
     private void gameOver() {
         try {
-
-            bout.newLine();
-            bout.write(Main.playerName + ": " + Math.round(finalScore*100.0)/100.0);
-            bout.close();
-
+            if (Main.playerName.equals(""))
+                Main.playerName = "Unknown";
+            IntroController.bout.write(Main.playerName + "," + Math.round(finalScore*100.0)/100.0);
+            IntroController.bout.newLine();
+            IntroController.bout.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        listView.getItems().clear();
+        pane.getChildren().removeIf(i -> (i).getId().equals("hole"));
+        shotCounter = 0;
+        Main.mojeOkno.setRoot(Main.root[0]);
     }
 
     public double distanceBetweenTwoPoints(double x1, double y1, double x2, double y2) {
@@ -118,12 +128,6 @@ public class Controller implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
-            bout = new BufferedWriter(new FileWriter("score.txt", true));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         tiredLabel.setText(""+(int)tiredSlider.getValue());
         tiredSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
